@@ -1,21 +1,23 @@
 import "./App.css";
-import React from "React";
-import { useState, useEffect } from React;
+import React from "react";
+import { useState, useEffect } from "react";
 import Images from "./components/Images";
+import LargeImages from "./components/LargeImages"
 
-//UseState & UseEffect to identify components to be rendered from API and fetch the data
 
-//UseState
+
+//UseState determines state to recieve data
 const [imageData, setImageData] = useState([]);
+const [index, setIndex] = useState([null])
 
 //Not sure if this bit of code is right, or if it is, if it should be somewhere else?
 export default function App() {
   
 
-  //USE EFFECT
+  //USE EFFECT fetches the data
     useEffect(() => {
     async function getData() {
-      const response = await fetch("https://week-6-api.vercel.app/api/images");
+      const response = await fetch(import.meta.env.VITE_FROG_IMAGES_API);
       const data = await response.json();
       setImageData(data);
     }
@@ -27,8 +29,7 @@ export default function App() {
 
 //Map creates a new array of images, and the key helps identify each image.
 
-
-  return (
+return (
     <>
       <h1 className="Images">Ribberting Stuff</h1>
     
@@ -48,7 +49,12 @@ export default function App() {
   );
 }
 
+function handleSwitchImage(index) {
+  setIndex(index)
+}
+
 function handleClick() {
+
   
 }
   setImageData()

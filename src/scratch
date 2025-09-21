@@ -100,4 +100,4 @@ export default function Image({ imgUrl, title, author }) {
 
 --Array
 --Event to switch between images (check earlier function)
---Larger images container (components) - conditionally rendered ---> condital logic
+--Larger images container (components) - conditionally rendered ---> conditional logic
