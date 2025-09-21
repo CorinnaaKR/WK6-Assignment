@@ -1,61 +1,56 @@
 import "./App.css";
-import React from "react";
 import { useState, useEffect } from "react";
 import Images from "./components/Images";
-import LargeImages from "./components/LargeImages"
-
-
+import LargeImages from "./components/LargeImages";
 
 //UseState determines state to recieve data
 const [imageData, setImageData] = useState([]);
-const [index, setIndex] = useState([null])
+const [index, setIndex] = useState(1);
 
 //Not sure if this bit of code is right, or if it is, if it should be somewhere else?
 export default function App() {
-  
-
   //USE EFFECT fetches the data
-    useEffect(() => {
+  useEffect(() => {
     async function getData() {
       const response = await fetch(import.meta.env.VITE_FROG_IMAGES_API);
       const data = await response.json();
       setImageData(data);
     }
+
     getData();
   }, []);
 
-  console.log(Images);
-  
+  console.log(data);
 
-//Map creates a new array of images, and the key helps identify each image.
+  //Map creates a new array of images, and the key helps identify each image.
 
-return (
+  return (
     <>
-      <h1 className="Images">Ribberting Stuff</h1>
-    
+      <h1>Gallery</h1>
       <div>
-        {images.map((item) => {
-        return (
-          <Images
-            key={item.id}
-            title={item.title} 
-            url={item.url}
-            alt={item.alt}
-            />
-        );
-})};
+        <section className="thumbsnail">
+          <thumbnail images={Images} />
+          <img
+            src={imgUrl}
+            alt={alt}
+            title={title}
+            className="w-80 h-96 rounded-2xl"
+          />
+        </section>
       </div>
     </>
   );
+
+  addEventListener.onClick;
+
+  function handleClick() {}
+  setImageData();
+
+  function handleSwitchImage(index) {
+    setIndex(index);
+  }
 }
 
-function handleSwitchImage(index) {
-  setIndex(index)
-}
-
-function handleClick() {
-
-  
-}
-  setImageData()
-}
+//what i think is needed next:
+//an event listener for when the images are clicked on
+//an event handler that creates the big images

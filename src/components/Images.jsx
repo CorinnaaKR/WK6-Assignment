@@ -12,15 +12,26 @@
 //   );
 // }
 
-export default function Image({ imgUrl, title, alt }) {
-  return (
-    <section className="thumbsnail">
-      <img
-        src={imgUrl}
-        alt={alt}
-        title={title}
-        className="w-80 h-96 rounded-2xl"
-      />
-    </section>
+export default function Image(props) {
+      images.map((Images) => {
+          <Images
+            key={Images.id}
+            title={Images.title} 
+            url={Images.url}
+            alt={Images.alt}
+            />
+       })
+      
+      <>
+      <h1 className="Images">Ribberting Stuff</h1>
+    
+  );
+   </>
+  
+    return (
+
+
+
+   
   );
 }
